@@ -3,113 +3,1335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supriya Rana</title>
+    <title>Digital Design Services for Sport | KPMG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ─── KPMG Design System Tokens ─────────────────────────────────── */
+        :root {
+            --kpmg-navy:       #00338D;
+            --kpmg-blue:       #005EB8;
+            --kpmg-bright:     #0091DA;
+            --kpmg-teal:       #00A3A1;
+            --kpmg-green:      #43B02A;
+            --kpmg-orange:     #FF6200;
+            --kpmg-dark:       #1B1C20;
+            --kpmg-gray-dark:  #4A4A4A;
+            --kpmg-gray-mid:   #9B9B9B;
+            --kpmg-gray-light: #F0F2F5;
+            --kpmg-white:      #FFFFFF;
+            --kpmg-border:     #D8DBE0;
+
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --max-w: 1200px;
+            --radius: 2px;
+        }
+
+        /* ─── Reset & Base ───────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        h1 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        p {
-            margin-bottom: 20px;
+            font-family: var(--font);
             font-size: 16px;
+            line-height: 1.6;
+            color: var(--kpmg-dark);
+            background: var(--kpmg-white);
+            -webkit-font-smoothing: antialiased;
         }
-        
-        a {
-            color: #0066cc;
-            text-decoration: none;
+
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
+
+        /* ─── Layout helpers ─────────────────────────────────────────────── */
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 32px;
         }
-        
-        a:hover {
-            text-decoration: underline;
+
+        /* ─── Navigation ─────────────────────────────────────────────────── */
+        nav {
+            background: var(--kpmg-white);
+            border-bottom: 3px solid var(--kpmg-navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
-        .section {
-            margin: 30px 0;
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            gap: 24px;
         }
-        
-        .section-title {
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .nav-logo-mark {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* KPMG wordmark – simple CSS recreation */
+        .kpmg-wordmark {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--kpmg-navy);
+            line-height: 1;
+        }
+
+        .kpmg-wordmark span { color: var(--kpmg-blue); }
+
+        .nav-divider {
+            width: 1px;
+            height: 28px;
+            background: var(--kpmg-border);
+        }
+
+        .nav-sector {
+            font-size: 13px;
             font-weight: 600;
-            margin-bottom: 15px;
+            color: var(--kpmg-gray-dark);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
-        
-        ul {
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
             list-style: none;
-            padding: 0;
         }
-        
-        li {
-            margin-bottom: 10px;
-            padding-left: 20px;
+
+        .nav-links li a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--kpmg-gray-dark);
+            padding: 8px 14px;
+            border-radius: var(--radius);
+            transition: color 0.15s, background 0.15s;
+            white-space: nowrap;
+        }
+
+        .nav-links li a:hover { color: var(--kpmg-navy); background: var(--kpmg-gray-light); }
+
+        .nav-cta {
+            background: var(--kpmg-navy);
+            color: var(--kpmg-white) !important;
+            padding: 10px 22px !important;
+            font-weight: 600 !important;
+            transition: background 0.15s !important;
+        }
+
+        .nav-cta:hover { background: var(--kpmg-blue) !important; color: var(--kpmg-white) !important; }
+
+        /* ─── Hero ───────────────────────────────────────────────────────── */
+        .hero {
+            background: var(--kpmg-navy);
+            position: relative;
+            overflow: hidden;
+            padding: 96px 0 80px;
+        }
+
+        /* Geometric background accent */
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -80px;
+            top: -80px;
+            width: 600px;
+            height: 600px;
+            background: var(--kpmg-blue);
+            opacity: 0.18;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: 120px;
+            bottom: -120px;
+            width: 400px;
+            height: 400px;
+            background: var(--kpmg-teal);
+            opacity: 0.12;
+            border-radius: 50%;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--kpmg-teal);
+            margin-bottom: 20px;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--kpmg-teal);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 4vw, 54px);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--kpmg-white);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--kpmg-teal);
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.82);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--kpmg-teal);
+            color: var(--kpmg-white);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.15s;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-primary:hover { background: var(--kpmg-bright); transform: translateY(-1px); }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--kpmg-white);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px 28px;
+            border: 2px solid rgba(255,255,255,0.45);
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .btn-outline:hover { border-color: var(--kpmg-white); background: rgba(255,255,255,0.07); }
+
+        /* Hero right – stat tiles */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 28px 24px;
             position: relative;
         }
-        
-        li:before {
-            content: "- ";
+
+        .stat-card::before {
+            content: '';
             position: absolute;
-            left: 0;
+            top: 0; left: 0;
+            width: 3px;
+            height: 100%;
         }
-        
-        .profile-image {
-            width: 100px;
-            height: 100px;
+
+        .stat-card:nth-child(1)::before { background: var(--kpmg-teal); }
+        .stat-card:nth-child(2)::before { background: var(--kpmg-green); }
+        .stat-card:nth-child(3)::before { background: var(--kpmg-orange); }
+        .stat-card:nth-child(4)::before { background: var(--kpmg-bright); }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--kpmg-white);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* ─── Section shared ─────────────────────────────────────────────── */
+        section { padding: 80px 0; }
+
+        .section-header { margin-bottom: 56px; }
+        .section-header.centered { text-align: center; }
+
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--kpmg-blue);
+            margin-bottom: 14px;
+        }
+
+        .section-eyebrow::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--kpmg-blue);
+        }
+
+        .section-eyebrow.teal { color: var(--kpmg-teal); }
+        .section-eyebrow.teal::before { background: var(--kpmg-teal); }
+        .section-eyebrow.green { color: var(--kpmg-green); }
+        .section-eyebrow.green::before { background: var(--kpmg-green); }
+
+        .section-title {
+            font-size: clamp(26px, 3vw, 40px);
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--kpmg-dark);
+            letter-spacing: -0.3px;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--kpmg-gray-dark);
+            line-height: 1.7;
+            max-width: 680px;
+        }
+
+        .section-header.centered .section-subtitle { margin: 0 auto; }
+
+        /* ─── Services ───────────────────────────────────────────────────── */
+        .services-section { background: var(--kpmg-gray-light); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--kpmg-border);
+        }
+
+        .service-card {
+            background: var(--kpmg-white);
+            padding: 36px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: default;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            transition: width 0.25s ease;
+        }
+
+        .service-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,51,141,0.1); }
+        .service-card:hover::after { width: 100%; }
+
+        /* Accent colours per card */
+        .service-card:nth-child(1)::after { background: var(--kpmg-navy); }
+        .service-card:nth-child(2)::after { background: var(--kpmg-teal); }
+        .service-card:nth-child(3)::after { background: var(--kpmg-blue); }
+        .service-card:nth-child(4)::after { background: var(--kpmg-green); }
+        .service-card:nth-child(5)::after { background: var(--kpmg-orange); }
+        .service-card:nth-child(6)::after { background: var(--kpmg-bright); }
+        .service-card:nth-child(7)::after { background: var(--kpmg-navy); }
+        .service-card:nth-child(8)::after { background: var(--kpmg-teal); }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
-            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 22px;
         }
-        
-        .signature {
-            margin-top: 40px;
-            font-style: italic;
-            text-align: right;
+
+        .icon-navy    { background: rgba(0,51,141,0.1);  color: var(--kpmg-navy);   }
+        .icon-teal    { background: rgba(0,163,161,0.1); color: var(--kpmg-teal);   }
+        .icon-blue    { background: rgba(0,94,184,0.1);  color: var(--kpmg-blue);   }
+        .icon-green   { background: rgba(67,176,42,0.1); color: var(--kpmg-green);  }
+        .icon-orange  { background: rgba(255,98,0,0.1);  color: var(--kpmg-orange); }
+        .icon-bright  { background: rgba(0,145,218,0.1); color: var(--kpmg-bright); }
+
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--kpmg-dark);
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--kpmg-gray-dark);
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 4px 10px;
+            border: 1px solid var(--kpmg-border);
+            color: var(--kpmg-gray-dark);
+            border-radius: 20px;
+        }
+
+        /* ─── Approach ───────────────────────────────────────────────────── */
+        .approach-section { background: var(--kpmg-white); }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .approach-steps { counter-reset: steps; }
+
+        .step {
+            display: flex;
+            gap: 24px;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--kpmg-border);
+            counter-increment: steps;
+        }
+
+        .step:last-child { border-bottom: none; }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--kpmg-navy);
+            color: var(--kpmg-white);
+            font-size: 14px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-top: 2px;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--kpmg-dark);
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: var(--kpmg-gray-dark);
+            line-height: 1.65;
+        }
+
+        /* Right column – visual accent block */
+        .approach-visual {
+            background: var(--kpmg-navy);
+            padding: 48px 40px;
+            color: var(--kpmg-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-visual::before {
+            content: '';
+            position: absolute;
+            bottom: -60px; right: -60px;
+            width: 260px; height: 260px;
+            background: var(--kpmg-blue);
+            opacity: 0.25;
+            border-radius: 50%;
+        }
+
+        .approach-visual h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .approach-visual p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .principles-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .principles-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .principles-list li span.check {
+            color: var(--kpmg-teal);
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* ─── Sectors ────────────────────────────────────────────────────── */
+        .sectors-section { background: var(--kpmg-gray-light); }
+
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            background: var(--kpmg-border);
+            margin-top: 48px;
+        }
+
+        .sector-card {
+            background: var(--kpmg-white);
+            padding: 32px 24px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .sector-card:hover { background: var(--kpmg-navy); }
+        .sector-card:hover .sector-icon { background: rgba(255,255,255,0.1); color: var(--kpmg-teal); }
+        .sector-card:hover .sector-name { color: var(--kpmg-white); }
+        .sector-card:hover .sector-desc { color: rgba(255,255,255,0.72); }
+
+        .sector-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--kpmg-gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin: 0 auto 20px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .sector-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--kpmg-dark);
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .sector-desc {
+            font-size: 13px;
+            color: var(--kpmg-gray-dark);
+            line-height: 1.5;
+            transition: color 0.2s;
+        }
+
+        /* ─── Value props ────────────────────────────────────────────────── */
+        .value-section { background: var(--kpmg-white); }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 48px;
+        }
+
+        .value-item { padding: 0; }
+
+        .value-accent {
+            width: 48px; height: 4px;
+            margin-bottom: 24px;
+        }
+
+        .value-item:nth-child(1) .value-accent { background: var(--kpmg-navy); }
+        .value-item:nth-child(2) .value-accent { background: var(--kpmg-teal); }
+        .value-item:nth-child(3) .value-accent { background: var(--kpmg-green); }
+
+        .value-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--kpmg-dark);
+            margin-bottom: 12px;
+        }
+
+        .value-item p {
+            font-size: 15px;
+            color: var(--kpmg-gray-dark);
+            line-height: 1.7;
+        }
+
+        /* ─── Testimonial/CTA banner ─────────────────────────────────────── */
+        .quote-section {
+            background: var(--kpmg-teal);
+            padding: 72px 0;
+        }
+
+        .quote-inner {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        blockquote {
+            font-size: clamp(20px, 2.5vw, 30px);
+            font-weight: 700;
+            line-height: 1.35;
+            color: var(--kpmg-white);
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '\201C';
+            font-size: 80px;
+            line-height: 0;
+            position: absolute;
+            top: 30px; left: -16px;
+            color: rgba(255,255,255,0.25);
+            font-family: Georgia, serif;
+        }
+
+        blockquote footer {
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .quote-cta h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--kpmg-white);
+            margin-bottom: 12px;
+        }
+
+        .quote-cta p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--kpmg-white);
+            color: var(--kpmg-teal);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .btn-white:hover { background: var(--kpmg-dark); color: var(--kpmg-white); }
+
+        /* ─── Insights strip ─────────────────────────────────────────────── */
+        .insights-section { background: var(--kpmg-gray-light); }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--kpmg-border);
+            margin-top: 48px;
+        }
+
+        .insight-card {
+            background: var(--kpmg-white);
+            padding: 32px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .insight-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,51,141,0.08); }
+
+        .insight-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--kpmg-blue);
+            margin-bottom: 12px;
+        }
+
+        .insight-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--kpmg-dark);
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .insight-card p {
+            font-size: 14px;
+            color: var(--kpmg-gray-dark);
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--kpmg-navy);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: 0.02em;
+            transition: gap 0.15s;
+        }
+
+        .read-more:hover { gap: 10px; }
+
+        /* ─── CTA Section ────────────────────────────────────────────────── */
+        .cta-section {
+            background: var(--kpmg-navy);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(28px, 3.5vw, 44px);
+            font-weight: 800;
+            color: var(--kpmg-white);
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.78);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.65;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ─── Footer ─────────────────────────────────────────────────────── */
+        footer {
+            background: var(--kpmg-dark);
+            padding: 64px 0 32px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .kpmg-wordmark { color: var(--kpmg-white); margin-bottom: 16px; }
+        .footer-brand .kpmg-wordmark span { color: var(--kpmg-teal); }
+
+        .footer-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .social-links { display: flex; gap: 12px; }
+
+        .social-link {
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: rgba(255,255,255,0.6);
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .social-link:hover { background: var(--kpmg-teal); color: var(--kpmg-white); }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.65);
+            transition: color 0.15s;
+        }
+
+        .footer-col ul li a:hover { color: var(--kpmg-white); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 28px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-legal {
+            font-size: 13px;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .footer-legal a { color: rgba(255,255,255,0.5); }
+        .footer-legal a:hover { color: var(--kpmg-white); }
+
+        /* ─── Utilities ──────────────────────────────────────────────────── */
+        .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+        /* ─── Responsive ─────────────────────────────────────────────────── */
+        @media (max-width: 1024px) {
+            .hero-inner        { grid-template-columns: 1fr; }
+            .hero-stats        { max-width: 480px; }
+            .services-grid     { grid-template-columns: repeat(2, 1fr); }
+            .sectors-grid      { grid-template-columns: repeat(2, 1fr); }
+            .footer-top        { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .container         { padding: 0 20px; }
+            section            { padding: 56px 0; }
+            .nav-links         { display: none; }
+            .nav-cta           { display: flex !important; }
+            .services-grid     { grid-template-columns: 1fr; }
+            .approach-grid     { grid-template-columns: 1fr; }
+            .value-grid        { grid-template-columns: 1fr; }
+            .sectors-grid      { grid-template-columns: 1fr 1fr; }
+            .insights-grid     { grid-template-columns: 1fr; }
+            .quote-inner       { grid-template-columns: 1fr; }
+            .footer-top        { grid-template-columns: 1fr; }
+            .footer-bottom     { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <h1>Supriya Rana</h1>
-    
-    <p>I'm an Associate Director, Digital Transformation at <a href="https://kpmg.com">KPMG</a> with expertise in management consulting. I'm passionate about helping organizations navigate their digital journey while creating meaningful user experiences.</p>
-    
-    <p>I specialize in driving UI/UX transformations for clients, combining strategic consulting with user-centered design thinking. When I'm not transforming businesses, you'll find me exploring art, music, and crafts.</p>
-    
-    <div class="section">
-        <div class="section-title">Experience:</div>
-        <ul>
-            <li><strong>Associate Director, Digital Transformation</strong> at <a href="https://kpmg.com">KPMG</a> - Leading digital transformation initiatives and driving UI/UX improvements for enterprise clients</li>
-            <li><strong>Management Consultant</strong> at <a href="https://ey.com">EY</a> - Delivered strategic consulting solutions across various industries</li>
-            <li><strong>Analyst</strong> at <a href="https://jpmorgan.com">JP Morgan</a> - Gained foundational experience in financial services and business analysis</li>
-        </ul>
+
+<!-- ─── Navigation ──────────────────────────────────────────────────────── -->
+<nav>
+    <div class="container">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-mark">
+                    <span class="kpmg-wordmark">KPMG</span>
+                </div>
+                <div class="nav-divider"></div>
+                <span class="nav-sector">Sport &amp; Design</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#approach">Our Approach</a></li>
+                <li><a href="#sectors">Who We Serve</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#contact" class="nav-cta">Talk to Us</a></li>
+            </ul>
+        </div>
     </div>
-    
-    <div class="section">
-        <div class="section-title">Education & Expertise:</div>
-        <ul>
-            <li><strong>MBA</strong> from <a href="https://bits-pilani.ac.in">BITS Pilani</a></li>
-            <li><strong>Specialization:</strong> Management Consulting, Digital Transformation, UI/UX Strategy</li>
-            <li><strong>Passion Projects:</strong> Art, Music, and Crafts - where creativity meets strategy</li>
-        </ul>
+</nav>
+
+<!-- ─── Hero ─────────────────────────────────────────────────────────────── -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div>
+                <p class="hero-eyebrow">Digital Design for Sport</p>
+                <h1>Elevating Sport Through <em>Human-Centred Design</em></h1>
+                <p class="hero-desc">We help sports organisations, governing bodies and institutes unlock competitive advantage through world-class UX research, UI design and front-end engineering — built on KPMG's global consulting depth.</p>
+                <div class="hero-actions">
+                    <a href="#services" class="btn-primary">Explore Our Services &#8594;</a>
+                    <a href="#contact" class="btn-outline">Speak to a Specialist</a>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Digital projects delivered across sport &amp; entertainment</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Average uplift in fan digital engagement post-redesign</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Sports organisations served globally</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Client satisfaction score across design engagements</div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="section">
-        <div class="section-title">Connect:</div>
-        <p>Find me on <a href="https://in.linkedin.com/in/supriya-rana-256b1796">LinkedIn</a> or reach out to discuss digital transformation, design thinking, or creative collaborations.</p>
+</section>
+
+<!-- ─── Services ─────────────────────────────────────────────────────────── -->
+<section class="services-section" id="services">
+    <div class="container">
+        <div class="section-header centered">
+            <p class="section-eyebrow">Our Capabilities</p>
+            <h2 class="section-title">Digital Design Services for Sport</h2>
+            <p class="section-subtitle">From discovery to delivery, we bring together research, strategy and craft to create digital experiences that move fans, athletes and organisations forward.</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-icon icon-navy">&#128269;</div>
+                <h3>UX Research &amp; Insights</h3>
+                <p>Deep qualitative and quantitative research to understand your fans, athletes and staff. We uncover unmet needs, map user journeys and turn evidence into design direction that drives real outcomes.</p>
+                <div class="service-tags">
+                    <span class="tag">User Interviews</span>
+                    <span class="tag">Journey Mapping</span>
+                    <span class="tag">Usability Testing</span>
+                    <span class="tag">Ethnography</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-teal">&#128161;</div>
+                <h3>Design Thinking Workshops</h3>
+                <p>Structured innovation sprints that align leadership and frontline teams around shared challenges. We facilitate rapid ideation, prototype-led thinking and strategic roadmaps that your whole organisation can rally behind.</p>
+                <div class="service-tags">
+                    <span class="tag">Discovery Sprints</span>
+                    <span class="tag">Ideation</span>
+                    <span class="tag">Co-Design</span>
+                    <span class="tag">Prototyping</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-blue">&#127912;</div>
+                <h3>UI Design</h3>
+                <p>Pixel-perfect, brand-aligned interface design for apps, websites and in-venue digital. We craft scalable design systems, accessible components and visually compelling experiences that resonate with sport audiences.</p>
+                <div class="service-tags">
+                    <span class="tag">Design Systems</span>
+                    <span class="tag">Mobile &amp; Web</span>
+                    <span class="tag">Accessibility</span>
+                    <span class="tag">Brand Alignment</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-green">&#128187;</div>
+                <h3>Front-End Development</h3>
+                <p>High-performance front-end engineering that brings designs to life with precision. From React-powered fan platforms to real-time scoring dashboards, we build fast, resilient and maintainable digital products.</p>
+                <div class="service-tags">
+                    <span class="tag">React / Next.js</span>
+                    <span class="tag">Performance</span>
+                    <span class="tag">Responsive</span>
+                    <span class="tag">CI/CD</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-orange">&#127775;</div>
+                <h3>Design-Led Visioning</h3>
+                <p>Strategic foresight sessions that help leadership teams imagine and plan the digital future of their organisation. We translate ambition into concrete, prioritised roadmaps grounded in user need and business value.</p>
+                <div class="service-tags">
+                    <span class="tag">Future-State Design</span>
+                    <span class="tag">Strategic Roadmap</span>
+                    <span class="tag">Scenario Planning</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-bright">&#128202;</div>
+                <h3>Analytics &amp; Performance</h3>
+                <p>Data-driven design optimisation across your digital estate. We implement analytics frameworks, run A/B experiments and translate behavioural data into improvements that measurably increase engagement and revenue.</p>
+                <div class="service-tags">
+                    <span class="tag">A/B Testing</span>
+                    <span class="tag">Conversion</span>
+                    <span class="tag">Dashboards</span>
+                    <span class="tag">Data Strategy</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-navy">&#128241;</div>
+                <h3>Fan Experience Strategy</h3>
+                <p>End-to-end mapping of the fan lifecycle — from awareness to advocacy. We design digital touchpoints across ticketing, membership, broadcast and in-venue to maximise loyalty, lifetime value and commercial opportunity.</p>
+                <div class="service-tags">
+                    <span class="tag">Fan Journeys</span>
+                    <span class="tag">Loyalty Design</span>
+                    <span class="tag">CRM Integration</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-teal">&#9889;</div>
+                <h3>Digital Accessibility</h3>
+                <p>Inclusive design audits and remediation to ensure your digital products meet WCAG standards and serve every fan, regardless of ability. We embed accessibility into design systems so it scales across your organisation.</p>
+                <div class="service-tags">
+                    <span class="tag">WCAG 2.2</span>
+                    <span class="tag">Audit &amp; Remediation</span>
+                    <span class="tag">Inclusive Design</span>
+                </div>
+            </div>
+
+        </div>
     </div>
-    
-    <!-- Optional profile image -->
-    <!-- <img src="/images/profile.jpg" alt="Profile" class="profile-image"> -->
-    
-    <div class="signature">
-        -- Supriya Rana
+</section>
+
+<!-- ─── Approach ──────────────────────────────────────────────────────────── -->
+<section class="approach-section" id="approach">
+    <div class="container">
+        <div class="approach-grid">
+            <div>
+                <div class="section-header">
+                    <p class="section-eyebrow teal">How We Work</p>
+                    <h2 class="section-title">A Proven Design Process Built for Sport</h2>
+                    <p class="section-subtitle">We combine KPMG's consulting rigour with a deeply human-centred design methodology to deliver outcomes — not just outputs.</p>
+                </div>
+
+                <div class="approach-steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Discover &amp; Research</h4>
+                            <p>We start by listening. Stakeholder interviews, fan surveys, analytics audits and competitive benchmarking give us a complete picture of where you are and where the opportunities lie.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Define &amp; Align</h4>
+                            <p>We synthesise research into clear problem statements, strategic objectives and design principles — creating alignment across your leadership, technology and commercial teams.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Design &amp; Prototype</h4>
+                            <p>Rapid concept development, wireframing and high-fidelity prototyping. We test early and iterate fast, validating with real users before any development begins.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">
+                            <h4>Build &amp; Deliver</h4>
+                            <p>Design handoff to engineering, front-end development and quality assurance — all under one roof. We work alongside your existing tech teams or deliver end-to-end.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div class="step-content">
+                            <h4>Measure &amp; Optimise</h4>
+                            <p>Post-launch analytics, usability reviews and continuous improvement cycles ensure your digital products keep performing as your audiences evolve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="approach-visual">
+                    <h3>Why Design Matters in Sport</h3>
+                    <p>The organisations winning the digital race in sport aren't the ones with the biggest budgets — they're the ones who truly understand their audiences and design every interaction with intention.</p>
+                    <ul class="principles-list">
+                        <li><span class="check">&#10003;</span> Human-centred design increases fan retention by making every digital moment feel effortless and personal</li>
+                        <li><span class="check">&#10003;</span> Strategic UX removes friction from ticketing, membership and e-commerce — directly growing revenue</li>
+                        <li><span class="check">&#10003;</span> Data-led optimisation turns gut-feel decisions into evidence-based ones that compound over time</li>
+                        <li><span class="check">&#10003;</span> A consistent design system reduces build costs and speeds up time-to-market for new digital products</li>
+                        <li><span class="check">&#10003;</span> Inclusive, accessible design expands your addressable audience and demonstrates social responsibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
+
+<!-- ─── Sectors ───────────────────────────────────────────────────────────── -->
+<section class="sectors-section" id="sectors">
+    <div class="container">
+        <div class="section-header centered">
+            <p class="section-eyebrow green">Who We Serve</p>
+            <h2 class="section-title">Specialists Across the Sport Ecosystem</h2>
+            <p class="section-subtitle">We work with the full breadth of sport — from elite professional clubs to national governing bodies, sports technology companies and community sport providers.</p>
+        </div>
+
+        <div class="sectors-grid">
+            <div class="sector-card">
+                <div class="sector-icon">&#127942;</div>
+                <div class="sector-name">Professional Sports Clubs</div>
+                <div class="sector-desc">Premier League, rugby, cricket, basketball and beyond — helping clubs build world-class fan digital products</div>
+            </div>
+            <div class="sector-card">
+                <div class="sector-icon">&#127941;</div>
+                <div class="sector-name">Governing Bodies &amp; Federations</div>
+                <div class="sector-desc">National and international bodies looking to modernise participant and fan digital experiences at scale</div>
+            </div>
+            <div class="sector-card">
+                <div class="sector-icon">&#127970;</div>
+                <div class="sector-name">Stadia &amp; Venues</div>
+                <div class="sector-desc">Smart venue digital design — from wayfinding and in-bowl screens to app-driven hospitality experiences</div>
+            </div>
+            <div class="sector-card">
+                <div class="sector-icon">&#128640;</div>
+                <div class="sector-name">Sports Technology</div>
+                <div class="sector-desc">SaaS platforms, wearables and performance analytics companies building products for coaches and athletes</div>
+            </div>
+            <div class="sector-card">
+                <div class="sector-icon">&#127936;</div>
+                <div class="sector-name">Esports &amp; Gaming</div>
+                <div class="sector-desc">Digital-native sport organisations creating immersive online experiences and community platforms</div>
+            </div>
+            <div class="sector-card">
+                <div class="sector-icon">&#127938;</div>
+                <div class="sector-name">Olympic &amp; Paralympic Institutes</div>
+                <div class="sector-desc">Performance institutes and academies digitising athlete development pathways and coaching tools</div>
+            </div>
+            <div class="sector-card">
+                <div class="sector-icon">&#127952;</div>
+                <div class="sector-name">Fitness &amp; Wellness Brands</div>
+                <div class="sector-desc">Consumer fitness, health and nutrition brands building digital experiences that change behaviours</div>
+            </div>
+            <div class="sector-card">
+                <div class="sector-icon">&#128250;</div>
+                <div class="sector-name">Sports Media &amp; Broadcasting</div>
+                <div class="sector-desc">Streaming platforms, rights holders and publishers designing next-generation content consumption</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Why KPMG ───────────────────────────────────────────────────────────── -->
+<section class="value-section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Our Difference</p>
+            <h2 class="section-title">Design Expertise Backed by <br>Consulting Depth</h2>
+        </div>
+
+        <div class="value-grid">
+            <div class="value-item">
+                <div class="value-accent"></div>
+                <h3>Global Scale, Sport Focus</h3>
+                <p>KPMG's global network of 265,000 professionals gives us unparalleled reach and cross-industry insight, while our dedicated sport practice brings deep sector knowledge to every engagement. You get a firm that understands both business and the beautiful game.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-accent"></div>
+                <h3>Strategy Through to Execution</h3>
+                <p>Unlike pure design agencies or traditional consultancies, we sit at the intersection of both. We can take a challenge from discovery and strategy right through to shipped product — maintaining quality, coherence and commercial intent throughout.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-accent"></div>
+                <h3>Measurable Business Impact</h3>
+                <p>Every design decision we make is tied to a business outcome. We define success metrics upfront and measure relentlessly — so you can demonstrate to your board exactly what design investment returns in fan loyalty, commercial revenue and operational efficiency.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Testimonial/Quote ─────────────────────────────────────────────────── -->
+<section class="quote-section">
+    <div class="container">
+        <div class="quote-inner">
+            <div>
+                <blockquote>
+                    "Working with KPMG's design team fundamentally changed how we think about our fans' digital journey. They didn't just redesign our app — they helped us understand who our fans really are, and built a product that reflects that."
+                    <footer>&#8212; Chief Digital Officer, Premier League Club</footer>
+                </blockquote>
+            </div>
+            <div class="quote-cta">
+                <h3>Ready to put your fans at the centre?</h3>
+                <p>Let's start with a conversation about your digital ambitions and where design can create the most value for your organisation.</p>
+                <a href="#contact" class="btn-white">Get in Touch &#8594;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Insights ──────────────────────────────────────────────────────────── -->
+<section class="insights-section" id="insights">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-eyebrow">Thinking &amp; Insights</p>
+            <h2 class="section-title">Sport &amp; Design Perspectives</h2>
+        </div>
+
+        <div class="insights-grid">
+            <div class="insight-card">
+                <div class="insight-label">Fan Experience</div>
+                <h3>The £1bn Fan Experience Gap: How Sport is Leaving Digital Revenue on the Table</h3>
+                <p>Analysis of 50 top-tier sports organisations reveals a consistent pattern: clubs with mature UX programmes generate 38% more digital revenue per fan than those without. Here's what separates them.</p>
+                <a href="#" class="read-more">Read article &#8594;</a>
+            </div>
+            <div class="insight-card">
+                <div class="insight-label">Design Strategy</div>
+                <h3>Beyond the App: Why Sport Needs a Full Digital Design System — Not Just a Redesign</h3>
+                <p>One-off redesigns rarely stick. The organisations building lasting digital advantage are those investing in systematic, scalable design infrastructure. We explore what that looks like in practice for sport.</p>
+                <a href="#" class="read-more">Read article &#8594;</a>
+            </div>
+            <div class="insight-card">
+                <div class="insight-label">Analytics</div>
+                <h3>Data-Driven Design: Using Behavioural Analytics to Optimise Sport Digital Products</h3>
+                <p>Heat maps, session recordings and A/B tests are only as valuable as the design decisions they inform. We share a framework for turning behavioural data into continuous product improvement in sport.</p>
+                <a href="#" class="read-more">Read article &#8594;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <h2>Let's Shape the Future of Your Digital Experience</h2>
+        <p>Whether you're starting from scratch or looking to evolve an existing product, our sport design specialists are ready to help. Tell us about your challenge.</p>
+        <div class="cta-actions">
+            <a href="https://in.linkedin.com/in/supriya-rana-256b1796" class="btn-primary" target="_blank" rel="noopener">Connect on LinkedIn &#8594;</a>
+            <a href="mailto:hello@kpmg.com" class="btn-outline">Send an Enquiry</a>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────────────────────────── -->
+<footer>
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="kpmg-wordmark">KPMG</div>
+                <p class="footer-desc">KPMG's Digital Design practice helps sports organisations harness the power of human-centred design to create exceptional fan and athlete experiences, backed by world-class consulting expertise.</p>
+                <div class="social-links">
+                    <a href="https://in.linkedin.com/in/supriya-rana-256b1796" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Twitter">&#120143;</a>
+                    <a href="#" class="social-link" aria-label="Instagram">&#9642;</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">UX Research</a></li>
+                    <li><a href="#services">Design Thinking</a></li>
+                    <li><a href="#services">UI Design</a></li>
+                    <li><a href="#services">Front-End Dev</a></li>
+                    <li><a href="#services">Analytics</a></li>
+                    <li><a href="#services">Accessibility</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Sectors</h4>
+                <ul>
+                    <li><a href="#sectors">Professional Clubs</a></li>
+                    <li><a href="#sectors">Governing Bodies</a></li>
+                    <li><a href="#sectors">Stadia &amp; Venues</a></li>
+                    <li><a href="#sectors">Sports Technology</a></li>
+                    <li><a href="#sectors">Esports</a></li>
+                    <li><a href="#sectors">Sports Media</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="https://kpmg.com" target="_blank" rel="noopener">KPMG Global</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                    <li><a href="#approach">Our Approach</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="https://in.linkedin.com/in/supriya-rana-256b1796" target="_blank" rel="noopener">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-legal">&copy; 2024 KPMG LLP, a UK limited liability partnership and a member firm of the KPMG global organisation. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Legal</a> | <a href="#">Accessibility</a></p>
+            <p class="footer-legal">Supriya Rana &mdash; Associate Director, Digital Transformation</p>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
